@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Priyank Chheda</title>
+  <style type="text/css">
+    html {
+      -webkit-text-size-adjust: 100%;
+      padding-bottom: 4em
+    }
+
+    body {
+      line-height: 1.5em;
+      max-width: 40em;
+      padding: 0 2%;
+      margin: auto
+    }
+  </style>
+</head>
+
+<body>
+  <br>
+  <a href="index.html">home</a>
+  <h1>Stack Data Structure</h1>
+  <small>Feb 8th, 2020</small>
+  <p>Stack is a linear data structure which follows a particular order in which the operations are performed. The order
+    may be LIFO(Last In First Out) or FILO(First In Last Out).
+    Mainly the following three basic operations are performed in the stack:</p>
+
+  <li><b>Push:</b> Adds an item in the stack. If the stack is full, then it is said to be an Overflow condition.</li>
+  <li><b>Pop:</b> Removes an item from the stack. The items are popped in the reversed order in which they are pushed.
+    If the stack is empty, then it is said to be an Underflow condition.</li>
+  <li><b>Peek or Top:</b> Returns top element of stack.</li>
+  <li><b>isEmpty:</b> Returns true if stack is empty, else false.</li>
+  <li><b>isFull:</b> Returns true if stack is full, else false.</li>
+
+
+  <p><strong>Time Complexities of operations on stack: </strong></br>
+    Push, Pop, isEmpty, isFull and peek all take O(1) constant time. We do not run any loop in any of these operations.
+  </p>
+
+  <strong>Applications of stack:</strong>
+  <li>Balancing of symbols</li>
+  <li>Infix to Postfix /Prefix conversion</li>
+  <li>Redo-undo features at many places like editors, photoshop.</li>
+  <li>Forward and backward feature in web browsers</li>
+  <li>Used in many algorithms like Tower of Hanoi, tree traversals, histogram problem, Backtracking,
+    Knight tour problem, Rat in a maze, N queen problem and sudoku solver.</li>
+  <li>In Graph Algorithms like Topological Sorting and Strongly Connected Components</li>
+
+
+  <p><strong>Python Code:</strong></br>Please checkout <a
+      href="https://github.com/priyankchheda/py3algo/tree/master/stack">py3algo</a> for more stack
+    code solutions.</p>
+  <pre style="border:1px solid #D3D3D3; padding:0 2%;">
+
+  class Stack:
+      def __init__(self):
+          """ Initializing empty stack."""
+          self._items = []
+
+      def push(self, item):
+          self._items.append(item)
+
+      def pop(self):
+          """ Returns and removes the last item for the list
+          :return: return top item of the stack or None, if stack is empty
+          """
+          if self._items:
+              return self._items.pop()
+          return None
+  
+      def peek(self):
+          """ returns the last item in the list
+          :return: returns top of the stack or None, if stack is empty
+          """
+          if self._items:
+              return self._items[-1]
+          return None
+  
+      def size(self):
+          """ returns number of elements currently present in list
+          :return: length of list
+          :rtype: int
+          """
+          return len(self._items)
+  
+      def is_empty(self):
+          """ returns a boolean value describing whether or not the
+          stack is empty.
+          :return: returns true if stack is empty, else false
+          """
+          return self._items == []
+      </pre>
+
+  <br>
+  <strong>References</strong>
+  <li><a href="https://www.geeksforgeeks.org/stack-data-structure-introduction-program/">
+      https://www.geeksforgeeks.org/stack-data-structure-introduction-program/</a></li>
+  <li><a href="https://www.hackerearth.com/practice/data-structures/stacks/basics-of-stacks/tutorial/">
+      https://www.hackerearth.com/practice/data-structures/stacks/basics-of-stacks/tutorial/</a></li>
+
+
+</body>
+
+</html>
