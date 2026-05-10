@@ -8,6 +8,17 @@ title = "posts"
   show_more_url = "/posts"
 
 [[entries]]
+title = "series"
+
+  [[entries.entries]]
+  title = "design patterns"
+  url = "/series/design-patterns/"
+
+  [[entries.entries]]
+  title = "distributed systems"
+  url = "/series/distributed-systems/"
+
+[[entries]]
 title = "links"
 
   [[entries.entries]]

@@ -2,6 +2,7 @@ baseURL = 'https://priyankchheda.github.io/'
 languageCode = 'en-us'
 title = 'Priyank Chheda'
 theme = 'nostyleplease'
+ignoreFiles = ['themes/nostyleplease/content']
 
 [params]
 description = "Backend engineer writing about Golang, distributed systems, design patterns, and software engineering."
@@ -11,6 +12,11 @@ appearance = "light"
 back_home_text = ".."
 date_format = "2006-01-02"
 isListGroupByDate = false
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  series = "series"
 
 [markup]
   [markup.highlight]
