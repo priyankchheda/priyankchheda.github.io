@@ -1,0 +1,17 @@
+baseURL = 'https://priyankchheda.github.io/'
+languageCode = 'en-us'
+title = 'Priyank Chheda'
+theme = 'nostyleplease'
+
+[params]
+description = "Backend engineer writing about Golang, distributed systems, design patterns, and software engineering."
+
+[params.theme_config]
+appearance = "light"
+back_home_text = ".."
+date_format = "2006-01-02"
+isListGroupByDate = false
+
+[markup]
+  [markup.highlight]
+    style = "github"

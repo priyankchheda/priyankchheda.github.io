@@ -1,0 +1,25 @@
+[[entries]]
+title = "info"
+
+  [[entries.entries]]
+  title = "Backend engineer writing about Golang, distributed systems, design patterns, and software engineering."
+
+[[entries]]
+title = "posts"
+
+  [entries.post_list]
+  limit = 10
+  show_more = true
+  show_more_text = "all posts..."
+  show_more_url = "/posts"
+
+[[entries]]
+title = "links"
+
+  [[entries.entries]]
+  title = "github"
+  url = "https://github.com/priyankchheda"
+
+[[entries]]
+title = "rss"
+url = "/index.xml"
