@@ -75,11 +75,12 @@ body[a="light"] { @include light-appearance; }
 html { height: 100%; }
 
 body {
-  font-family: "Fira Mono", Consolas, "DejaVu Sans Mono", Menlo, monospace;
-  font-size: 16px;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 1rem;
   line-height: 1.5;
-  font-weight: 400;
-  letter-spacing: 0px;
+  font-weight: 300;
+  text-rendering: optimizelegibility;
+  letter-spacing: 0.4px;
   margin: 0;
   min-height: 100%;
   overflow-wrap: break-word;
@@ -119,7 +120,7 @@ table, th, td {
 }
 
 code {
-  font-family: Consolas, "Fira Mono", Menlo, monospace;
+  font-family: Consolas, "Courier New", monospace;
   text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
@@ -175,7 +176,7 @@ details[open] summary {
 }
 
 .w {
-  max-width: 640px;
+  max-width: 860px;
   margin: 0 auto;
   padding: 4rem 2rem;
 }
