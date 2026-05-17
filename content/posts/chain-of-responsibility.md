@@ -16,7 +16,7 @@ If this sounds exactly like HTTP middleware, that's because it is. Go's `net/htt
 ## What Is the Chain of Responsibility Pattern?
 
 > "Avoid coupling the sender of a request to its receiver by giving more than one object a chance to handle the request. Chain the receiving objects and pass the request along the chain until an object handles it."
-> -- Gang of Four
+>-- Gang of Four
 
 The core idea: **a request passes through a sequence of handlers, each of which can process it, modify it, or stop it.** The sender doesn't know which handler will ultimately deal with the request, or how many handlers exist in the chain. It just hands the request to the first handler and trusts the chain to do its job.
 
@@ -44,7 +44,7 @@ Every concern lives in one function. Adding CORS handling means modifying this f
 
 With the pattern, each concern is its own handler:
 
-```
+```txt
 Request --> Auth --> RateLimit --> Validate --> BusinessLogic --> Response
 ```
 
@@ -67,7 +67,7 @@ type Handler interface {
 
 The flow:
 
-```
+```txt
 Client --> Handler A --> Handler B --> Handler C --> (end)
                 |              |              |
             handle or      handle or      handle or
@@ -222,7 +222,7 @@ func main() {
 }
 ```
 
-```
+```txt
 --- Valid request ---
   [auth] token verified
   [rate limit] client allowed
@@ -333,7 +333,7 @@ func main() {
 }
 ```
 
-```
+```txt
   [log] 10.0.0.1 {"action":"create"}
   [auth] verified
   [handler] processing: {"action":"create"}
