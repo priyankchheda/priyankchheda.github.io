@@ -1,5 +1,5 @@
 +++
-date = '2026-01-28'
+date = '2026-05-18'
 title = 'Chain of Responsibility Design Pattern in Go'
 series = ['design patterns']
 tags = ['golang', 'design-patterns', 'behavioral']
