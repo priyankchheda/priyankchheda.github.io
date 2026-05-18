@@ -1,5 +1,5 @@
 +++
-date = '2025-05-12'
+date = '2025-06-18'
 title = 'Builder Design Pattern in Go'
 series = ['design patterns']
 tags = ['golang', 'design-patterns', 'creational']
@@ -24,15 +24,8 @@ Without a builder, complex construction looks like this:
 
 ```go
 client := NewHTTPClient(
-    "https://api.example.com",
-    30 * time.Second,
-    3,
-    2 * time.Second,
-    "Bearer abc123",
-    true,
-    nil,
-    "info",
-)
+    "https://api.example.com", 30 * time.Second, 3, 2 * time.Second,
+    "Bearer abc123", true, nil, "info")
 ```
 
 What's the third parameter? Is it retries or timeout? What does `true` mean? What's `nil` for? The code compiles fine but communicates nothing. Change the parameter order and you have a silent bug.
@@ -78,7 +71,7 @@ type HTTPClient struct {
 
 The flow:
 
-```
+```txt
 Client --> Builder.BaseURL() --> Builder.Timeout() --> ... --> Builder.Build() --> Product
 ```
 
@@ -220,10 +213,9 @@ func main() {
     }
     fmt.Println(client)
 }
-```
 
-```
-HTTPClient{url=https://api.example.com timeout=30s retries=3 tls=true log=debug}
+// OUTPUT:
+// HTTPClient{url=https://api.example.com timeout=30s retries=3 tls=true log=debug}
 ```
 
 A misconfiguration:
@@ -237,10 +229,9 @@ client, err := NewHTTPClientBuilder().
 if err != nil {
     fmt.Println("Error:", err)
 }
-```
 
-```
-Error: build: TLS enabled but baseURL is not HTTPS
+// OUTPUT:
+// Error: build: TLS enabled but baseURL is not HTTPS
 ```
 
 The invalid configuration is caught before the client is ever used.
