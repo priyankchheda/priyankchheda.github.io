@@ -1,5 +1,5 @@
 +++
-date = '2025-07-03'
+date = '2025-09-11'
 title = 'Prototype Design Pattern in Go'
 series = ['design patterns']
 tags = ['golang', 'design-patterns', 'creational']
