@@ -70,7 +70,7 @@ Optionally, a **Prototype Registry** stores named prototypes so the client can r
 
 The flow:
 
-```
+```txt
 Client --> Prototype.Clone() --> Independent copy --> Client customizes and uses
 ```
 
@@ -187,7 +187,7 @@ func main() {
 }
 ```
 
-```
+```txt
 Base: POST https://api.prod.internal headers=3 body=0 bytes
 User: POST https://api.prod.internal/users headers=4 body=16 bytes
 Order: POST https://api.prod.internal/orders headers=4 body=25 bytes
@@ -245,11 +245,10 @@ func main() {
     req2.SetPath("/health")
     fmt.Println(req2)
 }
-```
 
-```
-POST https://api.prod.internal/orders headers=2 body=0 bytes
-GET https://api.prod.internal/health headers=1 body=0 bytes
+// OUTPUT:
+// POST https://api.prod.internal/orders headers=2 body=0 bytes
+// GET https://api.prod.internal/health headers=1 body=0 bytes
 ```
 
 Adding a new template category means registering it -- no switch statements, no factory functions to modify.
