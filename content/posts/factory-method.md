@@ -245,12 +245,11 @@ func main() {
         }
     }
 }
-```
 
-```txt
-Writing report.pdf: [PDF font=Arial margin=20mm] Q4 Revenue: $1.2M
-Writing report.csv: [CSV delim=';'] Q4 Revenue: $1.2M
-Writing report.xlsx: [Excel template=default] Q4 Revenue: $1.2M
+// OUTPUT:
+// Writing report.pdf: [PDF font=Arial margin=20mm] Q4 Revenue: $1.2M
+// Writing report.csv: [CSV delim=';'] Q4 Revenue: $1.2M
+// Writing report.xlsx: [Excel template=default] Q4 Revenue: $1.2M
 ```
 
 Three different formats, three different creators, one client function. Adding a new format -- say, HTML -- means writing `HTMLExporter` and `HTMLCreator`. Nothing else changes.
