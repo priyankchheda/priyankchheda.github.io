@@ -107,7 +107,7 @@ type Network interface {
 
 The flow:
 
-```
+```txt
 Client --> CloudFactory.CreateCompute() --> AWS/GCP Compute (as Compute interface)
        --> CloudFactory.CreateStorage() --> AWS/GCP Storage (as Storage interface)
        --> CloudFactory.CreateNetwork() --> AWS/GCP Network (as Network interface)
@@ -337,7 +337,7 @@ func main() {
 }
 ```
 
-```
+```txt
 --- AWS Environment ---
 Provisioning: EC2{t3.medium, us-east-1}, S3{app-data, us-east-1}, VPC{vpc-0abc123, us-east-1}
   [aws] configuring VPC vpc-0abc123 in us-east-1
