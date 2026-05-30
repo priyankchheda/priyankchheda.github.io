@@ -210,13 +210,12 @@ func main() {
     }
     fmt.Println("Result:", string(result))
 }
-```
 
-```
-[json-processor] input: 34 bytes
-[json-processor] output: 79 bytes
-[timing] 42.125µs
-Result: {"name":"alice","processed":true,"role":"engineer","timestamp":1710000000}
+// OUTPUT:
+// [json-processor] input: 34 bytes
+// [json-processor] output: 79 bytes
+// [timing] 42.125µs
+// Result: {"name":"alice","processed":true,"role":"engineer","timestamp":1710000000}
 ```
 
 The execution flows inward: timing starts the clock, logging records input size, validation checks bounds, the core transformer does its work. Results flow outward: validation passes through, logging records output size, timing stops the clock.
@@ -240,7 +239,7 @@ When validation rejects input:
 result, err := pipeline.Process([]byte{})
 ```
 
-```
+```txt
 [json-processor] input: 0 bytes
 [json-processor] error: validation: empty input
 [timing] 208ns
