@@ -78,7 +78,7 @@ type Notification struct {
 
 The flow:
 
-```
+```txt
 Client --> RefinedAbstraction (Alert/Reminder) --> Implementor interface (Channel) --> ConcreteImplementor (Email/SMS/Slack)
 ```
 
@@ -264,7 +264,7 @@ func main() {
 }
 ```
 
-```
+```txt
   [email → ops@example.com] Subject: [CRITICAL ALERT]
   Body: URGENT: Database connection pool exhausted
 Action required immediately.
@@ -339,7 +339,7 @@ Skip it when:
 ## Best Practices
 
 - **Define the implementor interface from the abstraction's perspective.** The `Channel` interface should expose what the notification *needs* (`Deliver`), not what each channel *can do*. Keep it minimal -- one or two methods that represent the essential operation.
-- **Inject the implementor through the constructor.** `NewAlert(channel, recipient, severity)` makes the dependency explicit. Avoid settters that allow the implementor to be nil between construction and first use.
+- **Inject the implementor through the constructor.** `NewAlert(channel, recipient, severity)` makes the dependency explicit. Avoid setters that allow the implementor to be nil between construction and first use.
 - **Keep refined abstractions independent of each other.** `Alert` shouldn't know about `Reminder`. They share the base `Notification` struct for the bridge connection, but otherwise have no relationship. If they start depending on each other, the abstraction hierarchy isn't properly designed.
 - **Don't put formatting logic in the channel.** The channel delivers. The notification type formats. If `EmailChannel.Deliver` starts wrapping content in HTML templates, it's doing the notification type's job. Keep the boundary clean.
 
