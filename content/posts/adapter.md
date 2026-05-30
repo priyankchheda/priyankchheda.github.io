@@ -66,7 +66,7 @@ func (s *StripeSDK) ReverseTransaction(txID string, cents int64) (*StripeResult,
 
 The flow:
 
-```
+```txt
 Client --> PaymentProcessor.Charge() --> StripeAdapter.Charge() --> StripeSDK.ExecuteTransaction()
 ```
 
@@ -180,12 +180,11 @@ func main() {
         fmt.Println("Error:", err)
     }
 }
-```
 
-```
-Charging $49.99 USD...
-  [stripe] charging 4999 USD (key=sk_live_...)
-Order processed successfully
+// OUTPUT:
+// Charging $49.99 USD...
+//   [stripe] charging 4999 USD (key=sk_live_...)
+// Order processed successfully
 ```
 
 `processOrder` doesn't know about Stripe. It works with `PaymentProcessor`. Tomorrow you could swap in a `SquareAdapter` or a `MockProcessor` for tests -- the function doesn't change.
