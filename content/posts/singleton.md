@@ -89,7 +89,7 @@ func GetPool() *ConnectionPool {
 
 The flow:
 
-```
+```txt
 Goroutine A calls GetPool() --> sync.Once runs initializer --> instance created
 Goroutine B calls GetPool() --> sync.Once skips (already done) --> same instance returned
 Goroutine C calls GetPool() --> sync.Once skips --> same instance returned
@@ -193,7 +193,7 @@ func main() {
 }
 ```
 
-```
+```txt
 [pool] initializing: dsn=postgres://localhost:5432/app max=10
 [pool] acquired connection (1/10)
 [handler 1] processing with Pool{dsn=postgres://localhost:5432/app active=1/10}
