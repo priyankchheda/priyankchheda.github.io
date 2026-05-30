@@ -61,7 +61,7 @@ Three participants.
 
 The lifecycle:
 
-```
+```txt
 Pool creates N objects at startup
   --> Client calls Acquire() --> Pool hands out an object (blocks if empty)
     --> Client uses the object
@@ -194,7 +194,7 @@ func main() {
 }
 ```
 
-```
+```txt
   [pool] creating connection 1
   [pool] creating connection 2
   [pool] creating connection 3
