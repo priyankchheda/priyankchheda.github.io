@@ -204,7 +204,7 @@ func main() {
 }
 ```
 
-```
+```txt
 [group] deploy everything (3 steps)
 [group] deploy backend (4 steps)
   [task] run migrations
@@ -233,7 +233,7 @@ build := NewTask("build binary", func() error {
 })
 ```
 
-```
+```txt
 [group] deploy everything (3 steps)
 [group] deploy backend (4 steps)
   [task] run migrations
