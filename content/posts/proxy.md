@@ -63,7 +63,7 @@ type GeocodingService interface {
 
 The flow:
 
-```
+```txt
 Client --> Proxy.Lookup() --> [caching? rate limit? access check?] --> RealService.Lookup()
 ```
 
@@ -249,7 +249,7 @@ func main() {
 }
 ```
 
-```
+```txt
 --- First lookup ---
   [api] calling external geocoding API for "london"
   [cache] stored "london"
@@ -264,7 +264,7 @@ The first call flows through all layers: access check passes, rate limit increme
 
 The proxy stack:
 
-```
+```txt
 Client --> AccessControlProxy --> RateLimitProxy --> CachingProxy --> RealGeocodingService
 ```
 
