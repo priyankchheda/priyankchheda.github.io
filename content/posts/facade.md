@@ -254,7 +254,7 @@ func main() {
 }
 ```
 
-```
+```txt
 --- Creating user ---
   [db] created user user_4821 (alice@example.com)
   [storage] provisioned bucket for user_4821
@@ -278,7 +278,7 @@ func (s *StorageService) CreateBucket(userID string) error {
 }
 ```
 
-```
+```txt
 --- Creating user ---
   [db] created user user_4821 (alice@example.com)
 FAILED: onboarding: storage setup failed: bucket quota exceeded
