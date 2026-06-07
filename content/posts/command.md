@@ -212,7 +212,7 @@ func main() {
 }
 ```
 
-```
+```txt
 -> executing: migrate users-db to v2
   [users-db] migrating v1 -> v2
 -> executing: migrate users-db to v3
