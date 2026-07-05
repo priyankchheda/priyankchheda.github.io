@@ -1,5 +1,5 @@
 +++
-date = '2026-02-27'
+date = '2026-07-05'
 title = 'Interpreter Design Pattern in Go'
 series = ['design patterns']
 tags = ['golang', 'design-patterns', 'behavioral']
@@ -193,10 +193,8 @@ func main() {
 
     fmt.Println(rule.Interpret(snapshot))
 }
-```
 
-```
-true
+// OUTPUT: true
 ```
 
 The evaluation walks the tree: `Or` asks `And` and `disk > 95`. `And` asks `cpu > 90` (true) and `memory > 80` (true). `And` returns true. `disk > 95` returns false. `true OR false` is true. Alert fires.
@@ -210,10 +208,8 @@ snapshot2 := Context{
     "disk":   97.0,
 }
 fmt.Println(rule.Interpret(snapshot2))
-```
 
-```
-true
+// OUTPUT: true
 ```
 
 CPU and memory are fine, but disk is critical. The OR branch catches it. Same rule, different data, different evaluation path.
@@ -227,10 +223,8 @@ snapshot3 := Context{
     "disk":   60.0,
 }
 fmt.Println(rule.Interpret(snapshot3))
-```
 
-```
-false
+// OUTPUT: false
 ```
 
 No alert. The rule object didn't change across any of these evaluations. The context did.
