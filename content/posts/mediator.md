@@ -1,5 +1,5 @@
 +++
-date = '2026-03-18'
+date = '2026-07-13'
 title = 'Mediator Design Pattern in Go'
 series = ['design patterns']
 tags = ['golang', 'design-patterns', 'behavioral']
@@ -273,7 +273,7 @@ func main() {
 }
 ```
 
-```
+```txt
 --- Successful order ---
   [inventory] reserving stock for ORD-001
   [payment] charged for ORD-001
