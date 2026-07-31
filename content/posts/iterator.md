@@ -1,5 +1,5 @@
 +++
-date = '2026-04-02'
+date = '2026-07-31'
 title = 'Iterator Design Pattern in Go'
 series = ['design patterns']
 tags = ['golang', 'design-patterns', 'behavioral']
@@ -84,7 +84,7 @@ This follows the same shape as `sql.Rows` and `bufio.Scanner`: `Next()` advances
 
 The flow:
 
-```
+```txt
 Client --> Iterator.Next() / Iterator.Value()
               |
               v
@@ -258,14 +258,13 @@ func main() {
         fmt.Println("error:", err)
     }
 }
-```
 
-```
-[1] login
-[2] update
-[3] delete
-[4] login
-[5] logout
+// OUTPUT:
+// [1] login
+// [2] update
+// [3] delete
+// [4] login
+// [5] logout
 ```
 
 Five entries, page size of 2. The iterator fetched three pages internally (2 + 2 + 1). The client saw five calls to `Next()` and five calls to `Value()`. No cursor management, no page tracking, no buffer logic.
@@ -284,12 +283,11 @@ for it.Next() {
 if err := it.Err(); err != nil {
     fmt.Println("error:", err)
 }
-```
 
-```
-[1] login
-[2] update
-error: API error: rate limited
+// OUTPUT:
+// [1] login
+// [2] update
+// error: API error: rate limited
 ```
 
 The iterator delivered the first page (entries 1 and 2), then hit an error fetching the second page. `Next()` returned `false`, and `Err()` tells the client why. The client's loop didn't change -- the same code handles both success and failure. This is the `sql.Rows` contract in action: consume the loop, then check for errors.
