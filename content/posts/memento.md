@@ -1,5 +1,5 @@
 +++
-date = '2026-04-21'
+date = '2026-08-29'
 title = 'Memento Design Pattern in Go'
 series = ['design patterns']
 tags = ['golang', 'design-patterns', 'behavioral']
@@ -239,15 +239,14 @@ func main() {
         fmt.Println("After redo:     ", config)
     }
 }
-```
 
-```
-After DB change: db=prod-db.internal:5432 rate=100 debug=false
-After rate limit: db=prod-db.internal:5432 rate=50 debug=false
-After debug on:  db=prod-db.internal:5432 rate=50 debug=true
-After undo 1:    db=prod-db.internal:5432 rate=50 debug=false
-After undo 2:    db=prod-db.internal:5432 rate=100 debug=false
-After redo:      db=prod-db.internal:5432 rate=50 debug=false
+// OUTPUT
+// After DB change: db=prod-db.internal:5432 rate=100 debug=false
+// After rate limit: db=prod-db.internal:5432 rate=50 debug=false
+// After debug on:  db=prod-db.internal:5432 rate=50 debug=true
+// After undo 1:    db=prod-db.internal:5432 rate=50 debug=false
+// After undo 2:    db=prod-db.internal:5432 rate=100 debug=false
+// After redo:      db=prod-db.internal:5432 rate=50 debug=false
 ```
 
 Four states saved, two undos, one redo. The configuration object handles its own snapshotting. The history manages the stack. The client code (`main`) never accesses the config's internal fields directly -- it works entirely through `SetX`, `Save`, and `Restore`.
