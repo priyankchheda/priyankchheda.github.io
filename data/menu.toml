@@ -18,6 +18,10 @@ title = "series"
   title = "distributed systems"
   url = "/series/distributed-systems/"
 
+  [[entries.entries]]
+  title = "system design"
+  url = "/series/system-design/"
+
 [[entries]]
 title = "links"
 
