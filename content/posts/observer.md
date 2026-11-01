@@ -1,5 +1,5 @@
 +++
-date = '2026-05-06'
+date = '2026-11-01'
 title = 'Observer Design Pattern in Go'
 series = ['design patterns']
 tags = ['golang', 'design-patterns', 'behavioral']
@@ -217,14 +217,13 @@ func main() {
         Payload: map[string]string{"orderID": "ORD-42", "amount": "99.99"},
     })
 }
-```
 
-```
-[email] Sending confirmation to customer@example.com for order ORD-42
-[audit] order_created: map[orderID:ORD-42]
-[metrics] recorded event: order_created
-
-[audit] payment_received: map[amount:99.99 orderID:ORD-42]
+// OUTPUT
+// [email] Sending confirmation to customer@example.com for order ORD-42
+// [audit] order_created: map[orderID:ORD-42]
+// [metrics] recorded event: order_created
+//
+// [audit] payment_received: map[amount:99.99 orderID:ORD-42]
 ```
 
 The first event triggers all three observers. Then metrics is unsubscribed. The second event reaches only email (which ignores non-order events) and audit. The emitter didn't change. The order service didn't change. Only the subscription list changed.
