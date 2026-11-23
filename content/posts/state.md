@@ -1,5 +1,5 @@
 +++
-date = '2026-06-14'
+date = '2026-11-23'
 title = 'State Design Pattern in Go'
 series = ['design patterns']
 tags = ['golang', 'design-patterns', 'behavioral']
@@ -7,7 +7,7 @@ tags = ['golang', 'design-patterns', 'behavioral']
 
 Think about an order in an e-commerce system. An order starts as "pending," then moves to "paid," then "shipped," then "delivered." The same action -- calling `Cancel()` -- does something completely different depending on the current state. A pending order can be cancelled freely. A paid order needs a refund. A shipped order might be too late to cancel. A delivered order definitely can't be cancelled.
 
-The naive approach: a `switch` on the state string inside every method. `Pay()` has a switch. `Cancel()` has a switch. `Ship()` has a switch. `Refund()` has a switch. Add a new state ("on hold," "returned") and you're modifying every method. Add a new action and you're adding another case to every state. The object becomes a sprawling decision matrix where behavior, transitions, and validation are all tangled together.
+The naive approach: a `switch` on the state string inside every method. `Pay()` has a switch. `Cancel()` has a switch. `Ship()` has a switch. `Refund()` has a switch. Add a new state ("on hold", "returned") and you're modifying every method. Add a new action and you're adding another case to every state. The object becomes a sprawling decision matrix where behavior, transitions, and validation are all tangled together.
 
 The **State pattern** eliminates this by giving each state its own object. The state object knows what actions are valid, how to execute them, and what state comes next. The order delegates to its current state. When the state changes, behavior changes -- automatically, without conditionals.
 
@@ -300,26 +300,26 @@ func must(err error) {
         fmt.Println("ERROR:", err)
     }
 }
-```
 
-```
-=== Happy path ===
-  [ORD-100] processing payment
-  [ORD-100] pending --> paid
-  [ORD-100] shipping order
-  [ORD-100] paid --> shipped
-  [ORD-100] delivered to customer
-  [ORD-100] shipped --> delivered
-
-=== Invalid actions ===
-cannot cancel: order ORD-100 is already delivered
-
-=== Cancel after payment ===
-  [ORD-200] processing payment
-  [ORD-200] pending --> paid
-  [ORD-200] cancelling and issuing refund
-  [ORD-200] paid --> cancelled
-Final state: cancelled
+// OUTPUT:
+//
+// === Happy path ===
+//   [ORD-100] processing payment
+//   [ORD-100] pending --> paid
+//   [ORD-100] shipping order
+//   [ORD-100] paid --> shipped
+//   [ORD-100] delivered to customer
+//   [ORD-100] shipped --> delivered
+//
+// === Invalid actions ===
+// cannot cancel: order ORD-100 is already delivered
+//
+// === Cancel after payment ===
+//   [ORD-200] processing payment
+//   [ORD-200] pending --> paid
+//   [ORD-200] cancelling and issuing refund
+//   [ORD-200] paid --> cancelled
+// Final state: cancelled
 ```
 
 The happy path flows through four states. Invalid actions produce clear errors without panics or undefined behavior. Cancellation after payment triggers a refund. Each transition is logged. The order object never contains a single conditional.
